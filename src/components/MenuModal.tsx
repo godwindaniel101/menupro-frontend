@@ -19,7 +19,7 @@ const MenuModal = ({
 					{item?.item_name.toUpperCase()}
 				</h3>
 				<p className="text-[14px] text-neutral-400">{item?.item_description}</p>
-				<p className="text-antique-gold text-[15px]">
+				<p className="text-light-teal text-[15px]">
 					<span className="text-[12px]">₦</span>
 					{item?.item_amount}
 				</p>
