@@ -16,95 +16,92 @@ import FeedbackModal from "../components/FeedbackModal";
 import useMenu from "../store/useMenu";
 
 const Home = () => {
-  const { menu, menu_details } = useMenu((state) => state);
-  const categories = [...new Set(menu.map((item) => item.item_category))];
-  const navigate = useNavigate();
-  const [openFeedbackModal, setOpenFeedbackModal] = useState(false);
+	const { menu, menu_details } = useMenu((state) => state);
+	const categories = [...new Set(menu.map((item) => item.item_category))];
+	const navigate = useNavigate();
+	const [openFeedbackModal, setOpenFeedbackModal] = useState(false);
 
-  const getIcon = (category: string) => {
-    return category === "Food"
-      ? FoodMenuIcon
-      : category === "Beverages"
-      ? BeverageMenuIcon
-      : category === "Cocktails"
-      ? CocktailMenuIcon
-      : category === "Mocktails"
-      ? MocktailMenuIcon
-      : category === "Wine"
-      ? WineMenuIcon
-      : GenericMenuIcon;
-  };
+	const getIcon = (category: string) => {
+		return category === "Food"
+			? FoodMenuIcon
+			: category === "Beverages"
+			? BeverageMenuIcon
+			: category === "Cocktails"
+			? CocktailMenuIcon
+			: category === "Mocktails"
+			? MocktailMenuIcon
+			: category === "Wine"
+			? WineMenuIcon
+			: GenericMenuIcon;
+	};
 
-  return (
-    <>
-      <Header />
-      <main className="h-[calc(100%-100px)] overflow-auto hide-scroll">
-        <section className="py-10 px-6">
-          <div className="grid grid-cols-2 justify-items-center gap-x-12 gap-y-6 px-6">
-            {categories.map((category, index) => (
-              <div
-                key={index}
-                className="max-w-[250px] w-full flex flex-col gap-3 hover:cursor-pointer"
-                onClick={() => navigate(`${ROUTES.category}/${category}`)}
-              >
-                <div className="relative overflow-hidden w-full aspect-square rounded-full bg-black flex items-center justify-center p-6 min-[375px]:p-8">
-                  <img
-                    src={getIcon(category)}
-                    alt=""
-                    className="max-w-[100px] w-full aspect-square object-contain block relative z-[1]"
-                  />
-                  <Curve />
-                </div>
-                <p className="text-center font-semibold sm:text-[20px] text-neutral-400">
-                  {category}
-                </p>
-              </div>
-            ))}
-            <a
-              href={
-                menu_details?.instagram_link ? menu_details?.instagram_link : ""
-              }
-              target="_blank"
-              className="max-w-[250px] w-full flex flex-col gap-3 hover:cursor-pointer"
-            >
-              <div className="relative overflow-hidden w-full aspect-square rounded-full bg-black flex items-center justify-center p-6 min-[375px]:p-8">
-                <img
-                  src={InstagramIcon}
-                  alt=""
-                  className="max-w-[100px] w-full aspect-square object-contain block relative z-[1]"
-                />
-                <Curve />
-              </div>
-              <p className="text-center font-semibold sm:text-[20px] text-neutral-400">
-                Instagram
-              </p>
-            </a>
-            <div
-              className="max-w-[250px] w-full flex flex-col gap-3 hover:cursor-pointer"
-              onClick={() => setOpenFeedbackModal(true)}
-            >
-              <div className="relative overflow-hidden w-full aspect-square rounded-full bg-black flex items-center justify-center p-6 min-[375px]:p-8">
-                <img
-                  src={FeedbackIcon}
-                  alt=""
-                  className="max-w-[100px] w-full aspect-square object-contain block relative z-[1]"
-                />
-                <Curve />
-              </div>
-              <p className="text-center font-semibold sm:text-[20px] text-neutral-400">
-                Feedback
-              </p>
-            </div>
-          </div>
-        </section>
-      </main>
+	return (
+		<>
+			<Header />
+			<main className="h-[calc(100%-100px)] overflow-auto hide-scroll">
+				<section className="py-10 px-6">
+					<div className="grid grid-cols-2 justify-items-center gap-x-12 gap-y-6 px-6">
+						{categories.map((category, index) => (
+							<div
+								key={index}
+								className="max-w-[250px] w-full flex flex-col gap-3 hover:cursor-pointer"
+								onClick={() => navigate(`${ROUTES.category}/${category}`)}>
+								<div className="relative overflow-hidden w-full aspect-square rounded-full bg-dark-teal flex items-center justify-center p-6 min-[375px]:p-8">
+									<img
+										src={getIcon(category)}
+										alt=""
+										className="max-w-[100px] w-full aspect-square object-contain block relative z-[1]"
+									/>
+									<Curve />
+								</div>
+								<p className="text-center font-semibold sm:text-[20px] text-neutral-200">
+									{category}
+								</p>
+							</div>
+						))}
+						<a
+							href={
+								menu_details?.instagram_link ? menu_details?.instagram_link : ""
+							}
+							target="_blank"
+							className="max-w-[250px] w-full flex flex-col gap-3 hover:cursor-pointer">
+							<div className="relative overflow-hidden w-full aspect-square rounded-full bg-dark-teal flex items-center justify-center p-6 min-[375px]:p-8">
+								<img
+									src={InstagramIcon}
+									alt=""
+									className="max-w-[100px] w-full aspect-square object-contain block relative z-[1]"
+								/>
+								<Curve />
+							</div>
+							<p className="text-center font-semibold sm:text-[20px] text-neutral-200">
+								Instagram
+							</p>
+						</a>
+						<div
+							className="max-w-[250px] w-full flex flex-col gap-3 hover:cursor-pointer"
+							onClick={() => setOpenFeedbackModal(true)}>
+							<div className="relative overflow-hidden w-full aspect-square rounded-full bg-dark-teal flex items-center justify-center p-6 min-[375px]:p-8">
+								<img
+									src={FeedbackIcon}
+									alt=""
+									className="max-w-[100px] w-full aspect-square object-contain block relative z-[1]"
+								/>
+								<Curve />
+							</div>
+							<p className="text-center font-semibold sm:text-[20px] text-neutral-200">
+								Feedback
+							</p>
+						</div>
+					</div>
+				</section>
+			</main>
 
-      <FeedbackModal
-        openFeedbackModal={openFeedbackModal}
-        setOpenFeedbackModal={setOpenFeedbackModal}
-      />
-    </>
-  );
+			<FeedbackModal
+				openFeedbackModal={openFeedbackModal}
+				setOpenFeedbackModal={setOpenFeedbackModal}
+			/>
+		</>
+	);
 };
 
 export default Home;

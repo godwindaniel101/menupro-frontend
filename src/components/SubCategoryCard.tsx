@@ -58,13 +58,13 @@ const SubCategoryCard = ({ subCategory }: SubCategoryCardProps) => {
 				id={heading[0]}
 				className="sub-category flex flex-col gap-6 cursor-pointer"
 				ref={elementRef}>
-				<h2 className="text-center p-1 rounded-lg bg-antique-gold/10 text-[20px] font-bold text-antique-gold">
+				<h2 className="text-center p-1 rounded-lg bg-light-teal/20 text-[20px] font-bold text-very-light-teal">
 					{heading[0].toUpperCase()}
 				</h2>
 				{subCategory.map((item, index) => (
 					<div
 						key={index}
-						className="flex justify-between border-b border-neutral-600 pb-4"
+						className="flex justify-between border-b border-light-teal/20 pb-4"
 						onClick={() => handleSelectItem(item)}>
 						<div className="flex flex-col gap-1">
 							<h3 className="font-bold text-neutral-300">
@@ -74,7 +74,7 @@ const SubCategoryCard = ({ subCategory }: SubCategoryCardProps) => {
 								{item.item_description}
 							</p>
 						</div>
-						<p className="text-antique-gold text-[15px]">
+						<p className="text-very-light-teal text-[15px]">
 							<span className="text-[12px]">₦</span>
 							{item.item_amount}
 						</p>
