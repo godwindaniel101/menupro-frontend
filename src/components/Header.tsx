@@ -35,6 +35,7 @@ const Header = ({ subCategories }: HeaderProps) => {
 		if (subCategories?.length) {
 			setActiveCategory(subCategories[0]);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const autoScroll = () => {
@@ -53,6 +54,7 @@ const Header = ({ subCategories }: HeaderProps) => {
 
 	useEffect(() => {
 		autoScroll();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [activeSubCategory]);
 
 	return (
@@ -73,7 +75,7 @@ const Header = ({ subCategories }: HeaderProps) => {
 						</button>
 					)}
 					<div className="absolute left-[50%] translate-x-[-50%] leading-[1] text-[22px] xs:text-[30px] font-black text-center">
-						<h1>{menu_details?.menu_name}</h1>
+						<h1 className="logo_text">{menu_details?.menu_name}</h1>
 					</div>
 					{!isHomePage && (
 						<button

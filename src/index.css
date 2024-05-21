@@ -45,6 +45,12 @@ body {
   /* color: #14b8a6; */
 }
 
+.logo_text {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .bg-illustration::before {
   content: "";
   background-image: url("./assets/bg-illustration.svg");
